@@ -9,7 +9,7 @@
 	     -o-transition: @arguments;
 	        transition: @arguments;
 }
-.tranform-translate(@value1, @value2){ 
+.transform-translate(@value1, @value2){ 
 	-webkit-transform: translate(@value1, @value2);
 	   -moz-transform: translate(@value1, @value2);
 	    -ms-transform: translate(@value1, @value2);
@@ -56,6 +56,10 @@ a{
 	text-decoration: none;
 	color: #000;
 }
+.burger, .burger-input{
+	display: none;
+}   
+
 .input{
 	border: none;
 	background: #FFF;
@@ -134,8 +138,9 @@ button{
 	.a-items(center);
 }
 .navbar-block{
+	display: flex;
 	&__link{
-		margin-left: 20px;
+		margin: 0 0 0 20px;
 		&:hover{
 			color: @color;
 			.transition();
@@ -200,7 +205,7 @@ button{
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		.tranform-translate(-45%, -45%);
+		.transform-translate(-45%, -45%);
 		&:hover{
 			opacity: 0.7;
 		}
@@ -226,7 +231,7 @@ button{
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		.tranform-translate(-45%, -45%);   
+		.transform-translate(-45%, -45%);   
 	}
 	&__gradient-bg{  
 		opacity: 0;
@@ -325,6 +330,54 @@ button{
 	:root{
 		font-size: 14px;
 	}
+	.navbar{
+	    flex-wrap: wrap;
+	    .j-content(space-between);
+	}
+	.navbar-block{
+		display: none;
+		.f-direction(column);
+		width: 100%;
+		.a-items(center);
+		&__link{
+			margin: 0 0 20px 0;
+		}
+	}
+	.burger{
+    	display: block;
+    	margin: 5px 0;
+    	&__btn{
+    		display: block;
+    		position: relative;
+		    width: 50px;
+		    height: 50px;
+	    	-webkit-border-radius: 50%;
+	    	        border-radius: 50%;
+	    	background: #FFF;
+    	}
+    	&__line, 
+    	&__line::after, 
+    	&__line::before{
+    		position: absolute;
+    		top: 50%;
+    		left: 50%;
+    		margin: -1px 0 0 -10px; 
+    		width: 20px;
+    		height: 2px;
+    		background: #000;  
+    	}
+    	&__line::before{
+    		content: ""; 
+    		.transform-translate(0, 6px);
+    	}
+    	&__line::after{
+    		content: ""; 
+    		.transform-translate(0, -6px);
+    	}
+    } 
+	.burger-input:checked ~ .navbar-block{
+		display: flex;
+	} 
 	.logo img{
 		width: 70%;
 	}
