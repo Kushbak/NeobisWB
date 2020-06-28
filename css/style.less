@@ -415,10 +415,19 @@ button{
 	    }
     }
     .skills{
+		grid-template-columns: 1fr;
+		&__skill-block{
+			text-align: center;
+		    margin: 0 0 20px 0;
+		}
     	&__my-photo{
+			text-align: center;
     		.a-self(center);
+			img{
+				width: 80%;
+			}
     	}
-    }
+    } 
 	.form{
 		width: 100%;
 	}
